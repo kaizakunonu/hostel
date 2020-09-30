@@ -32,7 +32,8 @@
          <!-- menu categories -->
 
     <menuitem name="People" id="hostel.menu_1" parent="hostel.menu_root"/>
-        <menuitem name="Properties" id="hostel.menu_2" parent="hostel.menu_root"/>
+    <menuitem name="Properties" id="hostel.property" parent="hostel.menu_root"/>
+        <menuitem name="Services" id="hostel.service" parent="hostel.menu_root"/>
 
 
 
@@ -93,7 +94,7 @@
                   action="cleaner_list_action"/>
 
 
-
+<!--resident-->
          <!-- resident form view -->
         <record model="ir.ui.view" id="resident_form_view">
             <field name="name">resident.form</field>
@@ -121,6 +122,66 @@
         <menuitem id="resident_menu" name="Residents"
                   parent="hostel.menu_1"
                   action="resident_list_action"/>
+
+
+<!--room-->
+
+        <!-- room form view -->
+        <record model="ir.ui.view" id="room_form_view">
+            <field name="name">room.form</field>
+            <field name="model">hostel_room.hostel_room</field>
+            <field name="arch" type="xml">
+                <form string="Room Form">
+                    <sheet>
+                        <group>
+                            <field name="room_no"/>
+                            <field name="rent_fee"/>
+                            <field name="rented"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="room_list_action">
+            <field name="name">Rooms</field>
+            <field name="res_model">hostel_room.hostel_room</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="room_menu" name="Rooms"
+                  parent="hostel.property"
+                  action="room_list_action"/>
+
+<!--service-->
+
+         <!-- service form view -->
+        <record model="ir.ui.view" id="service_form_view">
+            <field name="name">service.form</field>
+            <field name="model">hostel_service.hostel_service</field>
+            <field name="arch" type="xml">
+                <form string="Service Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="room_no"/>
+                            <field name="rent_fee"/>
+                            <field name="rented"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="service_list_action">
+            <field name="name">Services</field>
+            <field name="res_model">hostel_service.hostel_service</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="service_menu" name="Room Renting"
+                  parent="hostel.service"
+                  action="service_list_action"/>
 
     </data>
 </odoo>

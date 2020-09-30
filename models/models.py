@@ -51,3 +51,23 @@ class HostelResident(models.Model):
     registration_no = fields.Char(string='Registration number', required=True, index=True)
     room_no = fields.Integer(string='Room number', required=True, index=True)
     rent_fee = fields.Float(string='Rent fee', digits=(6, 2), required=True, index=True)
+
+
+class HostelRoom(models.Model):
+    _name = 'hostel_room.hostel_room'
+    _description = 'hostel_room.hostel_room'
+
+    name = fields.Char(string='Room name', required=True, index=True)
+    room_no = fields.Integer(string='Room number', required=True, index=True)
+    rent_fee = fields.Float(string='Rent fee', digits=(6, 2), required=True, index=True)
+    rented = fields.Boolean(string='Is it occupied?', required=True, default=False, index=True)
+
+
+class HostelAccommodation(models.Model):
+    _name = 'hostel_service.hostel_service'
+    _description = 'hostel_service.hostel_service'
+
+    name = fields.Char(string='Service name', required=True, index=True)
+    room_no = fields.Integer(string='Room number', required=True, index=True)
+    rent_fee = fields.Float(string='Rent fee', digits=(6, 2), required=True, index=True)
+    rented = fields.Boolean(string='Is it occupied?', required=True, default=False, index=True)

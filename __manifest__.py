@@ -34,6 +34,7 @@
         'security/ir.model.access.csv',
         #'views/templates.xml',
         'views/views.xml',
+        #'rejea/views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
