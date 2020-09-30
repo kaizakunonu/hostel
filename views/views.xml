@@ -24,19 +24,103 @@
       <field name="view_mode">tree,form</field>
     </record>
 
+
          <!-- Top menu item -->
 
-    <menuitem name="Hostel Management" id="hostel.menu_root"/>
+    <menuitem name="Hostel Management" id="hostel.menu_root" action="hostel.action_window"/>
 
          <!-- menu categories -->
 
-    <menuitem name="Students" id="hostel.menu_1" parent="hostel.menu_root"/>
+    <menuitem name="People" id="hostel.menu_1" parent="hostel.menu_root"/>
+        <menuitem name="Properties" id="hostel.menu_2" parent="hostel.menu_root"/>
 
-         <!-- actions -->
 
-    <menuitem name="Undergraduates" id="hostel.menu_1_list" parent="hostel.menu_1"
-              action="hostel.action_window"/>
 
+        <!-- nurse form view -->
+        <record model="ir.ui.view" id="nurse_form_view">
+            <field name="name">nurse.form</field>
+            <field name="model">hostel_nurse.hostel_nurse</field>
+            <field name="arch" type="xml">
+                <form string="Nurse Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="mobile_no"/>
+                            <field name="start_date"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="nurse_list_action">
+            <field name="name">Nurses</field>
+            <field name="res_model">hostel_nurse.hostel_nurse</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="nurse_menu" name="Nurses"
+                  parent="hostel.menu_1"
+                  action="nurse_list_action"/>
+
+
+
+        <!-- cleaner form view -->
+        <record model="ir.ui.view" id="cleaner_form_view">
+            <field name="name">cleaner.form</field>
+            <field name="model">hostel_cleaner.hostel_cleaner</field>
+            <field name="arch" type="xml">
+                <form string="Cleaner Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="mobile_no"/>
+                            <field name="start_date"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="cleaner_list_action">
+            <field name="name">Cleaners</field>
+            <field name="res_model">hostel_cleaner.hostel_cleaner</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="cleaner_menu" name="Cleaners"
+                  parent="hostel.menu_1"
+                  action="cleaner_list_action"/>
+
+
+
+         <!-- resident form view -->
+        <record model="ir.ui.view" id="resident_form_view">
+            <field name="name">resident.form</field>
+            <field name="model">hostel_resident.hostel_resident</field>
+            <field name="arch" type="xml">
+                <form string="Resident Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="registration_no"/>
+                            <field name="room_no"/>
+                            <field name="rent_fee"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="resident_list_action">
+            <field name="name">Residents</field>
+            <field name="res_model">hostel_resident.hostel_resident</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="resident_menu" name="Residents"
+                  parent="hostel.menu_1"
+                  action="resident_list_action"/>
 
     </data>
 </odoo>
