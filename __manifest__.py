@@ -10,14 +10,14 @@
         -Identify and keep students records in the hostel
         -Sort out students who have paid and those who have not paid 
         hostel residence fees
-        - manage hostel hygiene and maintainance 
+        - manage hostel hygiene and maintenance 
     """,
 
     'author': "Kaiza Ilomo",
-    'company': "Kunonu Technologies Co.Ltd",
-    'website': "https://www.kunonu.tech",
-    'support': "Kunonu Technologies Co.Ltd",
-    'maintainer': "Kunonu Technologies Co.Ltd",
+    'company': "Singo Africa Limited",
+    'website': "https://www.singo.africa",
+    'support': "Singo Africa Limited",
+    'maintainer': "Singo Africa Limited",
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/13.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
