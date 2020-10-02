@@ -198,8 +198,10 @@
                         <group>
                             <field name="name"/>
                             <field name="first_resident"/>
+                            <field name="second_resident"/>
                             <field name="rent_fee"/>
                             <field name="rented"/>
+                            <field name="room_condition"/>
                         </group>
                     </sheet>
                 </form>
@@ -215,6 +217,37 @@
         <menuitem id="room_menu" name="Rooms"
                   parent="hostel.property"
                   action="room_list_action"/>
+
+
+        <!--toilet-->
+
+        <!-- toilet form view -->
+        <record model="ir.ui.view" id="toilet_form_view">
+            <field name="name">toilet.form</field>
+            <field name="model">hostel_toilet.hostel_toilet</field>
+            <field name="arch" type="xml">
+                <form string="Toilet Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="first_cleaner"/>
+                            <field name="second_cleaner"/>
+                            <field name="toilet_condition"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="toilet_list_action">
+            <field name="name">Hostel Toilets</field>
+            <field name="res_model">hostel_toilet.hostel_toilet</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="toilet_menu" name="Toilets"
+                  parent="hostel.property"
+                  action="toilet_list_action"/>
 
 <!--service-->
 

@@ -120,8 +120,33 @@ class HostelRoom(models.Model):
                           help='Write the number of the hostel room')
     first_resident = fields.Char(string='Name of first resident', required=True, index=True,
                                  help='Write the name the first resident of the hostel room')
-    rent_fee = fields.Float(string='Rent fee', digits=(6, 2), required=True, index=True)
-    rented = fields.Boolean(string='Is it occupied?', required=True, default=False, index=True)
+    second_resident = fields.Char(string='Name of second resident', required=True, index=True,
+                                  help='Write the name the second resident of the hostel room')
+    rent_fee = fields.Float(string='Rent fee', digits=(6, 2), required=True, index=True,
+                            help='Write the amount of fee paid by the occupant')
+    rented = fields.Boolean(string='Is it occupied?', required=True, default=False, index=True,
+                            help='Tick if the room is already rented')
+    room_condition = fields.Text(string='Description of the room based on last inspection',
+                                 required=True, default='All items are present and working',
+                                 index=True, help='Write the current condition of items in the room')
+
+
+###############################################
+# start of HostelToilet class #################
+###############################################
+class HostelToilet(models.Model):
+    _name = 'hostel_toilet.hostel_toilet'
+    _description = 'Hostel toilet information'
+
+    name = fields.Char(string='Toilet name', required=True, index=True, default='Boys Block A',
+                       help='Write the name of the hostel toilet')
+    first_cleaner = fields.Char(string='Name of first cleaner', required=True, index=True,
+                                help='Write the name the first cleaner of the hostel toilet')
+    second_cleaner = fields.Char(string='Name of second cleaner', required=True, index=True,
+                                 help='Write the name the second cleaner of the hostel toilet')
+    toilet_condition = fields.Text(string='Description of the toilet based on the last inspection',
+                                   required=True, default='All items are present and working',
+                                   index=True, help='Write the current condition of items in the toilet')
 
 
 ###################################################
