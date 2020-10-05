@@ -125,6 +125,39 @@
                   parent="hostel.person"
                   action="resident_list_action"/>
 
+        <!--hostel student leader-->
+
+         <!-- hostel student leader form view -->
+        <record model="ir.ui.view" id="hostel_student_leader_form_view">
+            <field name="name">leader.form</field>
+            <field name="model">hostel_student_leader.hostel_student_leader</field>
+            <field name="arch" type="xml">
+                <form string="Leader Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="registration_no"/>
+                            <field name="room_no"/>
+                            <field name="mobile_no"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="leader_list_action">
+            <field name="name">All Hostel Student Leaders</field>
+            <field name="res_model">hostel_student_leader.hostel_student_leader</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="leader_menu" name="Student Leaders"
+                  parent="hostel.person"
+                  action="leader_list_action"/>
+
+
      <!--security guard-->
 
 

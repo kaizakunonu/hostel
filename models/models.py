@@ -75,6 +75,27 @@ class HostelResident(models.Model):
                             help='Enter amount of money paid by the resident as room rent fee')
 
 
+##############################################
+# start of HostelStudentLeader class #########
+##############################################
+class HostelStudentLeader(models.Model):
+    _name = 'hostel_student_leader.hostel_student_leader'
+    _description = 'Hostel student leader information'
+
+    name = fields.Char(string='Leader full name', required=True, index=True,
+                       help='Write the full name of hostel student leader')
+    registration_no = fields.Char(string='Leader registration number', required=True, index=True,
+                                  help='Write the university registration number of the leader')
+    room_no = fields.Integer(string='Leader room number', required=True, index=True,
+                             help='Write the number of the room assigned to this leader')
+    mobile_no = fields.Integer(string='Leader mobile number', required=True, index=True,
+                               help='Write the number of their mobile phone')
+    start_date = fields.Date(string='Tenure start date', required=True, index=True,
+                             help='Write the leadership tenure start date')
+    end_date = fields.Date(string='Tenure end date', required=True, index=True,
+                           help='Write the leadership tenure end date')
+
+
 #########################################
 # start of HostelSecurityGuard class ####
 #########################################
@@ -110,7 +131,7 @@ class HostelWarden(models.Model):
 
 
 ###############################################
-# start of HostelRoom class ###################
+# start of HostelRoom class, class for showing room ###################
 ###############################################
 class HostelRoom(models.Model):
     _name = 'hostel_room.hostel_room'
@@ -132,7 +153,7 @@ class HostelRoom(models.Model):
 
 
 ###############################################
-# start of HostelToilet class #################
+# start of HostelToilet class, responsible for Hostel #################
 ###############################################
 class HostelToilet(models.Model):
     _name = 'hostel_toilet.hostel_toilet'
