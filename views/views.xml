@@ -36,6 +36,7 @@
         <menuitem name="Services" id="hostel.service" parent="hostel.home"/>
 
 
+<!--hostel nurse and/or doctor-->
 
         <!-- nurse form view -->
         <record model="ir.ui.view" id="nurse_form_view">
@@ -46,6 +47,7 @@
                     <sheet>
                         <group>
                             <field name="name"/>
+                            <field name="gender"/>
                             <field name="mobile_no"/>
                             <field name="start_date"/>
                             <field name="end_date"/>
@@ -56,16 +58,16 @@
         </record>
 
         <record model="ir.actions.act_window" id="nurse_list_action">
-            <field name="name">Hostel nurses</field>
+            <field name="name">All Hostel nurses</field>
             <field name="res_model">hostel_nurse.hostel_nurse</field>
             <field name="view_mode">tree,form</field>
         </record>
 #nurse_menu
-        <menuitem id="hostel_person_nurse" name="Nurses"
+        <menuitem id="hostel_person_nurse" name="Nurses/Doctors"
                   parent="hostel.person"
                   action="nurse_list_action"/>
 
-
+<!--hostel cleaner-->
 
         <!-- cleaner form view -->
         <record model="ir.ui.view" id="cleaner_form_view">
@@ -76,6 +78,7 @@
                     <sheet>
                         <group>
                             <field name="name"/>
+                            <field name="gender"/>
                             <field name="mobile_no"/>
                             <field name="start_date"/>
                             <field name="end_date"/>
@@ -86,7 +89,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="cleaner_list_action">
-            <field name="name">Hostel cleaners</field>
+            <field name="name">All Hostel Cleaners</field>
             <field name="res_model">hostel_cleaner.hostel_cleaner</field>
             <field name="view_mode">tree,form</field>
         </record>
@@ -97,6 +100,7 @@
 
 
 <!--resident-->
+
          <!-- resident form view -->
         <record model="ir.ui.view" id="resident_form_view">
             <field name="name">resident.form</field>
@@ -106,8 +110,13 @@
                     <sheet>
                         <group>
                             <field name="name"/>
+                            <field name="gender"/>
+                            <field name="college"/>
                             <field name="registration_no"/>
+                            <field name="mobile_no"/>
                             <field name="room_no"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
                             <field name="rent_fee"/>
                         </group>
                     </sheet>
@@ -116,7 +125,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="resident_list_action">
-            <field name="name">Residents</field>
+            <field name="name">All Hostel Residents</field>
             <field name="res_model">hostel_resident.hostel_resident</field>
             <field name="view_mode">tree,form</field>
         </record>
@@ -125,7 +134,7 @@
                   parent="hostel.person"
                   action="resident_list_action"/>
 
-        <!--hostel student leader-->
+ <!--hostel student leader-->
 
          <!-- hostel student leader form view -->
         <record model="ir.ui.view" id="hostel_student_leader_form_view">
@@ -136,6 +145,7 @@
                     <sheet>
                         <group>
                             <field name="name"/>
+                            <field name="gender"/>
                             <field name="registration_no"/>
                             <field name="room_no"/>
                             <field name="mobile_no"/>
@@ -158,8 +168,7 @@
                   action="leader_list_action"/>
 
 
-     <!--security guard-->
-
+<!--security guard-->
 
         <!-- security guard form view -->
         <record model="ir.ui.view" id="security_guard_form_view">
@@ -170,6 +179,7 @@
                     <sheet>
                         <group>
                             <field name="name"/>
+                            <field name="gender"/>
                             <field name="mobile_no"/>
                             <field name="start_date"/>
                             <field name="end_date"/>
@@ -180,7 +190,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="security_guard_list_action">
-            <field name="name">Hostel Security Guards</field>
+            <field name="name">All Hostel Security Guards</field>
             <field name="res_model">hostel_security_guard.hostel_security_guard</field>
             <field name="view_mode">tree,form</field>
         </record>
@@ -189,8 +199,7 @@
                   parent="hostel.person"
                   action="security_guard_list_action"/>
 
-  <!--security guard-->
-
+<!--warden-->
 
         <!-- warden form view -->
         <record model="ir.ui.view" id="warden_form_view">
@@ -201,6 +210,7 @@
                     <sheet>
                         <group>
                             <field name="name"/>
+                            <field name="gender"/>
                             <field name="mobile_no"/>
                             <field name="start_date"/>
                             <field name="end_date"/>
@@ -211,7 +221,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="warden_list_action">
-            <field name="name">Hostel Wardens</field>
+            <field name="name">All Hostel Wardens</field>
             <field name="res_model">hostel_warden.hostel_warden</field>
             <field name="view_mode">tree,form</field>
         </record>
@@ -282,35 +292,126 @@
                   parent="hostel.property"
                   action="toilet_list_action"/>
 
-<!--service-->
+<!--store-->
 
-         <!-- service form view -->
-        <record model="ir.ui.view" id="service_form_view">
-            <field name="name">service.form</field>
-            <field name="model">hostel_service.hostel_service</field>
+        <!-- store form view -->
+        <record model="ir.ui.view" id="store_form_view">
+            <field name="name">store.form</field>
+            <field name="model">hostel_store.hostel_store</field>
             <field name="arch" type="xml">
-                <form string="Service Form">
+                <form string="Store Form">
                     <sheet>
                         <group>
                             <field name="name"/>
-                            <field name="room_no"/>
-                            <field name="rent_fee"/>
-                            <field name="rented"/>
+                            <field name="first_cleaner"/>
+                            <field name="second_cleaner"/>
+                            <field name="toilet_condition"/>
                         </group>
                     </sheet>
                 </form>
             </field>
         </record>
 
-        <record model="ir.actions.act_window" id="service_list_action">
-            <field name="name">Services</field>
-            <field name="res_model">hostel_service.hostel_service</field>
+        <record model="ir.actions.act_window" id="store_list_action">
+            <field name="name">All Hostel Stores</field>
+            <field name="res_model">hostel_store.hostel_store</field>
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="service_menu" name="Room Renting"
+        <menuitem id="store_menu" name="Stores"
+                  parent="hostel.property"
+                  action="store_list_action"/>
+
+<!--accommodation-->
+
+         <!-- accommodation form view -->
+        <record model="ir.ui.view" id="accommodation_form_view">
+            <field name="name">accommodation.form</field>
+            <field name="model">hostel_accommodation.hostel_accommodation</field>
+            <field name="arch" type="xml">
+                <form string="Accommodation Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="rent_fee_per_resident_per_bed"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="number_of_rooms"/>
+                            <!--<field name="season_payment"/>-->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="accommodation_list_action">
+            <field name="name">Accommodation</field>
+            <field name="res_model">hostel_accommodation.hostel_accommodation</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="accommodation_menu" name="Accommodation"
                   parent="hostel.service"
-                  action="service_list_action"/>
+                  action="accommodation_list_action"/>
+
+
+        <!--security-->
+
+         <!-- security form view -->
+        <record model="ir.ui.view" id="security_form_view">
+            <field name="name">security.form</field>
+            <field name="model">hostel_security.hostel_security</field>
+            <field name="arch" type="xml">
+                <form string="Security Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="occurrence_date"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="security_list_action">
+            <field name="name">All Security Issues</field>
+            <field name="res_model">hostel_security.hostel_security</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="security_menu" name="Security"
+                  parent="hostel.service"
+                  action="security_list_action"/>
+
+         <!--health-->
+
+         <!-- health form view -->
+        <record model="ir.ui.view" id="health_form_view">
+            <field name="name">health.form</field>
+            <field name="model">hostel_health.hostel_health</field>
+            <field name="arch" type="xml">
+                <form string="Health Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="how_many"/>
+                            <field name="price_per_item"/>
+                            <field name="total"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="health_list_action">
+            <field name="name">All Health items</field>
+            <field name="res_model">hostel_health.hostel_health</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="health_menu" name="Health"
+                  parent="hostel.service"
+                  action="health_list_action"/>
 
     </data>
 </odoo>
