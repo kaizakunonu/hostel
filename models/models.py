@@ -274,3 +274,29 @@ class Health(models.Model):
     def calculate_total(self):
         for record in self:
             record.total = record.how_many * record.price_per_item
+
+
+###############################################
+# HostelCounselling class start ###############
+###############################################
+class HostelCounselling (models.Model):
+    _name = 'hostel_counselling.hostel_counselling'
+    _description = 'Hostel counselling information'
+
+    name = fields.Char('Session name', required=True, index=True)
+    start_date = fields.Date('Starting date', required=True, index=True)
+    end_date = fields.Date('End date', required=True, index=True)
+    numbers = fields.Integer('Number of participants', required=True, index=True)
+
+    ###############################################
+    # HostelSport class start ###############
+    ###############################################
+    class HostelSport(models.Model):
+        _name = 'hostel_sport.hostel_sport'
+        _description = 'Hostel sport information'
+
+        name = fields.Char('Sport name', required=True, index=True)
+        start_date = fields.Date('Starting date', required=True, index=True)
+        end_date = fields.Date('End date', required=True, index=True)
+        numbers = fields.Integer('Number of participants', required=True, index=True)
+

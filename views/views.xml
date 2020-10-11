@@ -413,5 +413,65 @@
                   parent="hostel.service"
                   action="health_list_action"/>
 
+        <!--counselling-->
+
+         <!-- counselling form view -->
+        <record model="ir.ui.view" id="counselling_form_view">
+            <field name="name">counselling.form</field>
+            <field name="model">hostel_counselling.hostel_counselling</field>
+            <field name="arch" type="xml">
+                <form string="Health Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="numbers"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="counselling_list_action">
+            <field name="name">All counselling Sessions</field>
+            <field name="res_model">hostel_counselling.hostel_counselling</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="counselling_menu" name="Counselling and Guidance"
+                  parent="hostel.service"
+                  action="counselling_list_action"/>
+
+ <!--sport-->
+
+         <!-- sport form view -->
+        <record model="ir.ui.view" id="sport_form_view">
+            <field name="name">sport.form</field>
+            <field name="model">hostel_sport.hostel_sport</field>
+            <field name="arch" type="xml">
+                <form string="Sport Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="numbers"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="sport_list_action">
+            <field name="name">All sport Sessions</field>
+            <field name="res_model">hostel_sport.hostel_sport</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="sport_menu" name="Sport and Entertainment"
+                  parent="hostel.service"
+                  action="sport_list_action"/>
+
     </data>
 </odoo>
