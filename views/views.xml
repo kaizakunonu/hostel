@@ -257,7 +257,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="room_list_action">
-            <field name="name">Rooms</field>
+            <field name="name"> All Hostel Rooms </field>
             <field name="res_model">hostel_room.hostel_room</field>
             <field name="view_mode">tree,form</field>
         </record>
@@ -353,7 +353,7 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="store_menu" name="Electronics"
+        <menuitem id="electronics_menu" name="Electronics"
                   parent="hostel.property"
                   action="electronics_list_action"/>
 
