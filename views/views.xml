@@ -113,11 +113,13 @@
                             <field name="gender"/>
                             <field name="college"/>
                             <field name="registration_no"/>
+                            <field name="study_year"/>
                             <field name="mobile_no"/>
                             <field name="room_no"/>
                             <field name="start_date"/>
                             <field name="end_date"/>
                             <field name="rent_fee"/>
+                            <field name="Residence_Payment"/>
                         </group>
                     </sheet>
                 </form>
@@ -229,7 +231,10 @@
         <menuitem id="warden_menu" name="Wardens"
                   parent="hostel.person"
                   action="warden_list_action"/>
-<!--room-->
+
+<!-- HOSTEL PROPERTIES -->
+
+<!-- room -->
 
         <!-- room form view -->
         <record model="ir.ui.view" id="room_form_view">
@@ -262,7 +267,7 @@
                   action="room_list_action"/>
 
 
-        <!--toilet-->
+<!-- toilet and bathroom -->
 
         <!-- toilet form view -->
         <record model="ir.ui.view" id="toilet_form_view">
@@ -283,16 +288,16 @@
         </record>
 
         <record model="ir.actions.act_window" id="toilet_list_action">
-            <field name="name">Hostel Toilets</field>
+            <field name="name">All Hostel Toilets and Bathrooms </field>
             <field name="res_model">hostel_toilet.hostel_toilet</field>
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="toilet_menu" name="Toilets"
+        <menuitem id="toilet_menu" name="Toilets and Bathrooms"
                   parent="hostel.property"
                   action="toilet_list_action"/>
 
-<!--store-->
+<!-- store -->
 
         <!-- store form view -->
         <record model="ir.ui.view" id="store_form_view">
@@ -305,7 +310,7 @@
                             <field name="name"/>
                             <field name="first_cleaner"/>
                             <field name="second_cleaner"/>
-                            <field name="toilet_condition"/>
+                            <field name="store_condition"/>
                         </group>
                     </sheet>
                 </form>
@@ -321,6 +326,38 @@
         <menuitem id="store_menu" name="Stores"
                   parent="hostel.property"
                   action="store_list_action"/>
+
+<!-- electronics -->
+
+        <!-- electronics form view -->
+        <record model="ir.ui.view" id="electronics_form_view">
+            <field name="name">electronics.form</field>
+            <field name="model">hostel_electronics.hostel_electronics</field>
+            <field name="arch" type="xml">
+                <form string="Electronics Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="item_model"/>
+                            <field name="buying_price"/>
+                            <field name="item_condition"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="electronics_list_action">
+            <field name="name">All Hostel Electronics</field>
+            <field name="res_model">hostel_electronics.hostel_electronics</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="store_menu" name="Electronics"
+                  parent="hostel.property"
+                  action="electronics_list_action"/>
+
+<!-- HOSTEL SERVICES -->
 
 <!--accommodation-->
 
@@ -464,12 +501,12 @@
         </record>
 
         <record model="ir.actions.act_window" id="sport_list_action">
-            <field name="name">All sport Sessions</field>
+            <field name="name">All counselling Sessions</field>
             <field name="res_model">hostel_sport.hostel_sport</field>
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="sport_menu" name="Sport and Entertainment"
+        <menuitem id="sport_menu" name="Sport &amp; Entertainment"
                   parent="hostel.service"
                   action="sport_list_action"/>
 

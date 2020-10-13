@@ -77,6 +77,8 @@ class HostelResident(models.Model):
                           help='Write the name of the college the resident is attending')
     registration_no = fields.Char(string='Resident registration number', required=True, index=True,
                                   help='Write the university registration number of the resident')
+    study_year = fields.Integer('Study year', required=True, index=True,
+                                help='Write the year of study of the resident')
     mobile_no = fields.Char(string='Resident mobile number', required=True, index=True,
                             help='Write the cellular phone number of the resident')
     room_no = fields.Integer(string='Resident room number', required=True, index=True,
@@ -87,6 +89,8 @@ class HostelResident(models.Model):
                              help='Write the residence contract start date')
     end_date = fields.Date(string='Residence end date', required=True, index=True,
                            help='Write the residence contract end date')
+    Residence_Payment = fields.Boolean(required=True, index=True, default=False,
+                                       help='Tick If you received accommodation payment receipts')
 
 
 ##############################################
@@ -147,6 +151,8 @@ class HostelWarden(models.Model):
                            help='Write the employment contract end date')
 
 
+# HOSTEL PROPERTIES
+
 ###############################################
 # start of HostelRoom class ###################
 ###############################################
@@ -200,11 +206,31 @@ class HostelStore(models.Model):
                                 help='Write the name the first cleaner of the hostel store')
     second_cleaner = fields.Char(string='Name of second cleaner', required=True, index=True,
                                  help='Write the name the second cleaner of the hostel store')
-    toilet_condition = fields.Text(string='Description of the store based on the last inspection',
-                                   required=True, default='All items are present and working',
-                                   index=True, help='Write the current condition of items in the toilet')
+    store_condition = fields.Text(string='Description of the store based on the last inspection',
+                                  required=True, default='All items are present and working',
+                                  index=True,
+                                  help='Write the current condition of items in the store')
 
 
+###############################################
+# start of HostelElectronics class ############
+###############################################
+class HostelElectronics(models.Model):
+    _name = 'hostel_electronics.hostel_electronics'
+    _description = 'Hostel electronics information'
+
+    name = fields.Char(string='Item name', required=True, index=True, default='Television',
+                       help='Write the name of the electronic item')
+    item_model = fields.Char(string='Item model', required=True, index=True,
+                             help='Write the name the model for the electronic item')
+    buying_price = fields.Char(string='Original price', required=True, index=True,
+                               help='Write the price an item was bought for')
+    item_condition = fields.Text(string='Description of the item based on the last inspection',
+                                 required=True, default='It is functioning properly', index=True,
+                                 help='Write the current condition of item')
+
+
+# HOSTEL SERVICES
 ###################################################
 # start of HostelAccommodation class ##############
 ###################################################
@@ -279,7 +305,7 @@ class Health(models.Model):
 ###############################################
 # HostelCounselling class start ###############
 ###############################################
-class HostelCounselling (models.Model):
+class HostelCounselling(models.Model):
     _name = 'hostel_counselling.hostel_counselling'
     _description = 'Hostel counselling information'
 
@@ -299,4 +325,3 @@ class HostelCounselling (models.Model):
         start_date = fields.Date('Starting date', required=True, index=True)
         end_date = fields.Date('End date', required=True, index=True)
         numbers = fields.Integer('Number of participants', required=True, index=True)
-
