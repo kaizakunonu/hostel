@@ -36,6 +36,8 @@
         <menuitem name="Services" id="hostel.service" parent="hostel.home"/>
 
 
+<!-- HOSTEL PEOPLE -->
+
 <!--hostel nurse and/or doctor-->
 
         <!-- nurse form view -->
@@ -67,7 +69,7 @@
                   parent="hostel.person"
                   action="nurse_list_action"/>
 
-<!--hostel cleaner-->
+<!-- hostel cleaner -->
 
         <!-- cleaner form view -->
         <record model="ir.ui.view" id="cleaner_form_view">
@@ -99,7 +101,7 @@
                   action="cleaner_list_action"/>
 
 
-<!--resident-->
+<!-- resident -->
 
          <!-- resident form view -->
         <record model="ir.ui.view" id="resident_form_view">
@@ -136,7 +138,7 @@
                   parent="hostel.person"
                   action="resident_list_action"/>
 
- <!--hostel student leader-->
+ <!-- hostel student leader -->
 
          <!-- hostel student leader form view -->
         <record model="ir.ui.view" id="hostel_student_leader_form_view">
@@ -170,7 +172,7 @@
                   action="leader_list_action"/>
 
 
-<!--security guard-->
+<!-- security guard -->
 
         <!-- security guard form view -->
         <record model="ir.ui.view" id="security_guard_form_view">
@@ -201,7 +203,7 @@
                   parent="hostel.person"
                   action="security_guard_list_action"/>
 
-<!--warden-->
+<!-- hostel warden -->
 
         <!-- warden form view -->
         <record model="ir.ui.view" id="warden_form_view">
@@ -234,7 +236,7 @@
 
 <!-- HOSTEL PROPERTIES -->
 
-<!-- room -->
+<!-- hostel room -->
 
         <!-- room form view -->
         <record model="ir.ui.view" id="room_form_view">
@@ -267,7 +269,7 @@
                   action="room_list_action"/>
 
 
-<!-- toilet and bathroom -->
+<!-- hostel toilet and bathroom -->
 
         <!-- toilet form view -->
         <record model="ir.ui.view" id="toilet_form_view">
@@ -297,7 +299,7 @@
                   parent="hostel.property"
                   action="toilet_list_action"/>
 
-<!-- store -->
+<!-- hostel store -->
 
         <!-- store form view -->
         <record model="ir.ui.view" id="store_form_view">
@@ -327,7 +329,7 @@
                   parent="hostel.property"
                   action="store_list_action"/>
 
-<!-- electronics -->
+<!-- hostel electronics -->
 
         <!-- electronics form view -->
         <record model="ir.ui.view" id="electronics_form_view">
@@ -359,7 +361,7 @@
 
 <!-- HOSTEL SERVICES -->
 
-<!--accommodation-->
+<!-- hostel accommodation -->
 
          <!-- accommodation form view -->
         <record model="ir.ui.view" id="accommodation_form_view">
@@ -382,9 +384,9 @@
         </record>
 
         <record model="ir.actions.act_window" id="accommodation_list_action">
-            <field name="name">Accommodation</field>
-            <field name="res_model">hostel_accommodation.hostel_accommodation</field>
-            <field name="view_mode">tree,form</field>
+            <field name="name"> Accommodation </field>
+            <field name="res_model"> hostel_accommodation.hostel_accommodation </field>
+            <field name="view_mode"> tree,form </field>
         </record>
 
         <menuitem id="accommodation_menu" name="Accommodation"
@@ -392,7 +394,7 @@
                   action="accommodation_list_action"/>
 
 
-        <!--security-->
+<!-- hostel security -->
 
          <!-- security form view -->
         <record model="ir.ui.view" id="security_form_view">
@@ -420,7 +422,7 @@
                   parent="hostel.service"
                   action="security_list_action"/>
 
-         <!--health-->
+         <!-- hostel health -->
 
          <!-- health form view -->
         <record model="ir.ui.view" id="health_form_view">

@@ -3,7 +3,10 @@
 from odoo import models, fields, api
 
 
-# definition of Hostel class start
+# ENTRY POINT
+##########################################
+# definition of Hostel class start #######
+##########################################
 class Hostel(models.Model):
     _name = 'hostel.hostel'
     _description = 'Hostel information'
@@ -271,9 +274,9 @@ class HostelAccommodation(models.Model):
 #       record.season_payment = record.number_of_residence * record.days
 
 
-###############################################################
-#  security service ###########################################
-###############################################################
+##############################################################
+# start of Security class ####################################
+##############################################################
 
 class Security(models.Model):
     _name = 'hostel_security.hostel_security'
@@ -284,7 +287,7 @@ class Security(models.Model):
 
 
 ###############################################################
-#  health service ###########################################
+# start of Health class #######################################
 ###############################################################
 
 class Health(models.Model):
@@ -314,9 +317,9 @@ class HostelCounselling(models.Model):
     end_date = fields.Date('End date', required=True, index=True)
     numbers = fields.Integer('Number of participants', required=True, index=True)
 
-    ###############################################
-    # HostelSport class start ###############
-    ###############################################
+###############################################
+# HostelSport class start #####################
+###############################################
     class HostelSport(models.Model):
         _name = 'hostel_sport.hostel_sport'
         _description = 'Hostel sport information'
